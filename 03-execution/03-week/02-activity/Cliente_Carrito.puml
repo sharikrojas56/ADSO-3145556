@@ -1,0 +1,23 @@
+@startuml Carrito
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Cliente
+
+rectangle "Sistema Coffee Shop - Carrito" {
+
+  (Gestionar carrito) as GC
+  (Agregar producto) as AP
+  (Modificar cantidad) as MC
+  (Eliminar producto) as EP
+
+}
+
+Cliente -- GC
+
+GC .> AP : <<include>>
+GC .> MC : <<include>>
+GC .> EP : <<include>>
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml General
+left to right direction
+skinparam linetype ortho
+skinparam packageStyle rectangle
+
+actor Cliente
+actor Administrador
+
+rectangle "Sistema Coffee Shop" {
+
+  ' --- Zona Cliente ---
+  (Explorar productos) as EP
+  (Gestionar carrito) as GC
+  (Realizar pedido) as RP
+  (Consultar estado del pedido) as CE
+
+  ' --- Zona Administrador ---
+  (Gestionar productos) as GP
+  (Gestionar categorías) as GCAT
+  (Gestionar pedidos) as GPE
+  (Consultar reportes) as CR
+}
+
+' Cliente (lado izquierdo)
+Cliente -- EP
+Cliente -- GC
+Cliente -- RP
+Cliente -- CE
+
+' Administrador (lado derecho)
+Administrador -- GP
+Administrador -- GCAT
+Administrador -- GPE
+Administrador -- CR
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml Gestion Productos
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Administrador
+
+rectangle "Sistema Coffee Shop - Productos" {
+
+  (Gestionar productos) as GP
+  (Crear producto) as CP
+  (Editar producto) as EP
+  (Eliminar producto) as EL
+  (Actualizar stock) as AS
+
+}
+
+Administrador -- GP
+
+GP .> CP : <<include>>
+GP .> EP : <<include>>
+GP .> EL : <<include>>
+GP .> AS : <<include>>
+
+@enduml

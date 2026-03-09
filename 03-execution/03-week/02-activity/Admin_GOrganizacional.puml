@@ -1,0 +1,33 @@
+@startuml Gestion Organizacional
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Administrador
+
+rectangle "Sistema Coffee Shop - Organización" {
+
+  (Gestionar categorías) as GC
+  (Crear categoría) as CC
+  (Editar categoría) as EC
+  (Eliminar categoría) as ELC
+
+  (Gestionar marcas) as GM
+  (Crear marca) as CM
+  (Editar marca) as EM
+  (Eliminar marca) as ELM
+
+}
+
+Administrador -- GC
+Administrador -- GM
+
+GC .> CC : <<include>>
+GC .> EC : <<include>>
+GC .> ELC : <<include>>
+
+GM .> CM : <<include>>
+GM .> EM : <<include>>
+GM .> ELM : <<include>>
+
+@enduml

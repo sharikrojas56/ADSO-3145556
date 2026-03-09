@@ -1,0 +1,23 @@
+@startuml Pedido
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Cliente
+
+rectangle "Sistema Coffee Shop - Pedido" {
+
+  (Realizar pedido) as RP
+  (Seleccionar método de pago) as PG
+  (Confirmar pedido) as CP
+  (Consultar estado del pedido) as CE
+
+}
+
+Cliente -- RP
+Cliente -- CE
+
+RP .> PG : <<include>>
+RP .> CP : <<include>>
+
+@enduml

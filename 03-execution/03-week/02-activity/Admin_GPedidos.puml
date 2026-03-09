@@ -1,0 +1,23 @@
+@startuml Gestion Pedidos
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Administrador
+
+rectangle "Sistema Coffee Shop - Pedidos" {
+
+  (Gestionar pedidos) as GP
+  (Cambiar estado del pedido) as CE
+  (Cancelar pedido) as CA
+  (Consultar reportes) as CR
+
+}
+
+Administrador -- GP
+Administrador -- CR
+
+GP .> CE : <<include>>
+GP .> CA : <<include>>
+
+@enduml

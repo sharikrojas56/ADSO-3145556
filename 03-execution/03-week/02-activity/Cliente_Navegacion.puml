@@ -1,0 +1,22 @@
+@startuml Navegacion
+left to right direction
+skinparam packageStyle rectangle
+skinparam linetype ortho
+
+actor Cliente
+
+rectangle "Sistema Coffee Shop - Navegación" {
+
+  (Ver productos) as VP
+  (Filtrar productos) as FP
+  (Ver detalle de producto) as VD
+
+}
+
+Cliente -- VP
+Cliente -- FP
+Cliente -- VD
+
+VP .> VD : <<extend>>
+
+@enduml

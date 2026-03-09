@@ -1,0 +1,72 @@
+@startuml Mer
+skinparam linetype ortho
+
+entity "customers" {
+  * id : INT <<PK>>
+  --
+  name : VARCHAR(255)
+  address : VARCHAR(255)
+  email : VARCHAR(255)
+  phone : -
+}
+
+entity "product-in-car" {
+  * id_costumer : INT <<FK>>
+  * id_product : INT <<FK>>
+  --
+  date : DATETIME
+  amount : INT
+}
+
+entity "orders" {
+  * id : INT <<PK>>
+  --
+  date : DATETIME
+  customer_id : INT <<FK>>
+  amount : INT
+  paying_... : VARCHAR(255)
+  id_status : INT <<FK>>
+}
+
+entity "products" {
+  * id_product : INT <<PK>>
+  --
+  name : VARCHAR(255)
+  id_brand : INT <<FK>>
+  descri... : TEXT(65535)
+  price : DOUBLE
+  stock : INT
+  category_id : INT <<FK>>
+}
+
+entity "brands" {
+  * id_brand : INT <<PK>>
+  --
+  name : VARCHAR(255)
+  NIT : VARCHAR(255)
+  address : VARCHAR(255)
+}
+
+entity "categories" {
+  * id_category : INT <<PK>>
+  --
+  name : VARCHAR(255)
+  descrip... : VARCHAR(255)
+}
+
+entity "orderStatus" {
+  * id_status : INT <<PK>>
+  --
+  name : VARCHAR(255)
+  descrip... : VARCHAR(255)
+}
+
+' Relaciones
+customers "1" -- "n" "product-in-car"
+customers "1" -- "n" orders
+products "1" -- "n" "product-in-car"
+brands "1" -- "n" products
+categories "1" -- "n" products
+orderStatus "1" -- "n" orders
+
+@enduml
